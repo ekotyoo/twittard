@@ -7,7 +7,7 @@
 
             <img src="{{ auth()->user()->avatar }}" alt="avatar" class="rounded-full w-8 h-8">
 
-            <button type="submit" class="bg-blue-400 text-white px-4 py-2 rounded-full shadow">Twit a tard!!</button>
+            <button type="submit" class="bg-blue-400 hover:bg-blue-500 transition ease-in-out duration:200 focus:outline-none text-white px-4 py-2 rounded-full shadow">Twit a tard!!</button>
 
         </div>
     </form>

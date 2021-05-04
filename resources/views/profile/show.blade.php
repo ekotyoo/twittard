@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app>
     <header class="mb-6 rounded-lg relative">
         <img src="{{ asset('images/cover.jpg') }}" alt="cover" class="rounded-lg">
 
@@ -13,8 +11,8 @@
             </div>
 
             <div>
-                <button type="submit" class="border border-blue-400 font-semibold text-blue-400 text-sm px-4 py-2 rounded-full shadow">Edit Profile</button>
-                <button type="submit" class="font-semibold bg-blue-400 text-white text-sm px-4 py-2 rounded-full shadow">Follow</button>
+                <button type="submit" class="border border-blue-400 hover:bg-blue-100 focus:outline-none transition ease-in-out duration:200 font-semibold text-blue-400 text-sm px-4 py-2 rounded-full shadow">Edit Profile</button>
+                <button type="submit" class="font-semibold bg-blue-400 focus:outline-none hover:bg-blue-500 transition ease-in-out duration:200 text-white text-sm px-4 py-2 rounded-full shadow">Follow</button>
             </div>
         </div>
 
@@ -27,4 +25,4 @@
     @include('_timeline', [
         'tweets' => $user->tweets
     ])
-@endsection
+</x-app>

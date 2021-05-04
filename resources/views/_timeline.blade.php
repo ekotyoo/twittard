@@ -1,4 +1,4 @@
-<div class="border border-gray-300 rounded-lg p-4 pt-0 my-6">
+<div class="border-2 border-gray-200 rounded-lg my-6">
     @foreach ($tweets as $tweet)
         @include('_tweet')
     @endforeach
