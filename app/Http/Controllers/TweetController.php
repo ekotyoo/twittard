@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tweet;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class TweetController extends Controller
 {
@@ -15,6 +16,13 @@ class TweetController extends Controller
             'body' => $attributes['body']
         ]);
 
-        return redirect('/home');
+        return redirect('/tweet');
+    }
+
+    public function index()
+    {
+        return view('tweet.index', [
+            'tweets' => auth()->user()->timeline(),
+        ]);
     }
 }
