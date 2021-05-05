@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Followable;
 
     protected $fillable = [
         'name',
@@ -31,16 +31,6 @@ class User extends Authenticatable
         return 'https://i.pravatar.cc/150?u=' . $this->email;
     }
 
-    public function follow(User $user)
-    {
-        return $this->follows()->save($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
-    }
-
     public function timeline()
     {
         $friends = $this->follows()->pluck('id');
@@ -54,11 +44,12 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function getRouteKeyName()
+    public function path()
     {
-        return 'name';
+        return route('profile', $this->name);
     }
+
 }

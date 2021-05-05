@@ -10,9 +10,9 @@
                 <p class="text-sm text-gray-400">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
 
-            <div>
-                <button type="submit" class="border border-blue-400 hover:bg-blue-100 focus:outline-none transition ease-in-out duration:200 font-semibold text-blue-400 text-sm px-4 py-2 rounded-full shadow">Edit Profile</button>
-                <button type="submit" class="font-semibold bg-blue-400 focus:outline-none hover:bg-blue-500 transition ease-in-out duration:200 text-white text-sm px-4 py-2 rounded-full shadow">Follow</button>
+            <div class="flex">
+                <button type="submit" class="border border-blue-400 mr-2 hover:bg-blue-100 focus:outline-none transition ease-in-out duration:200 font-semibold text-blue-400 text-sm px-4 py-2 rounded-full shadow">Edit Profile</button>
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
 
